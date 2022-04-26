@@ -76,6 +76,20 @@ public class Card {
         
     }
     
+    //method that removes an element from an array
+
+    public Card[] removeArrayElement (Card[] arr, int index) {
+        Card[] newArray = new Card[arr.length - 1];
+        int newIndex = 0;
+        for(int i = 0; i < arr.length; i++) {
+            if(i != index) {
+                newArray[newIndex] = arr[i];
+                newIndex++;
+            }
+        }
+        return newArray;
+    }
+    
 
     //method that compares 3 cards and checks whether they form a set
     public boolean isSet(Card first, Card second, Card third) {
