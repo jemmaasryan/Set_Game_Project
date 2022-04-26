@@ -13,10 +13,10 @@ public class Card {
     private int number;
     protected Card[] deck;
 
-    String[] possibleColors = {"red", "green", "purple"};
-    String[] possibleShadings = {"empty", "filled", "striped"};
-    String[] possibleShapes = {"diamond", "wave", "oval"};
-    int[] possibleNumbers = {1, 2, 3};
+    public enum possibleColors {RED, GREEN, PURPLE};
+    public enum possibleShadings {EMPTY, FILLED, STRIPED};
+    public enum possibleShapes {DIAMOND, WAVE, OVAL};
+    public enum possibleNumbers {ONE, TWO, THREE};
 
     public Card(){
         this.color = "red";
