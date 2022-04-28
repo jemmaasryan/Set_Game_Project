@@ -7,6 +7,47 @@ random 12, 3
 //import java.util.ArrayList;
 
 public class Card {
+    
+    /*public enum possibleColors {RED, GREEN, PURPLE};
+    public enum possibleShadings {EMPTY, FILLED, STRIPED};
+    public enum possibleShapes {DIAMOND, WAVE, OVAL};
+    public enum possibleNumbers {ONE, TWO, THREE};
+
+    private possibleColors color;
+    private possibleShadings shading;
+    private possibleShapes shape;
+    private possibleNumbers number;
+    protected static Card[] deck = new Card[81];
+
+
+    public Card(){
+        this.color = possibleColors.RED;
+        this.shape = possibleShapes.DIAMOND;
+        this.shading = possibleShadings.EMPTY;
+        this.number = possibleNumbers.ONE;
+    }
+
+    public Card(possibleColors color, possibleShadings shading, possibleShapes shape, possibleNumbers number) {
+        this.color = color;
+        this.shading = shading;
+        this.shape = shape;
+        this.number = number;
+    }
+    
+    public Card[] createDeck() {
+        for(int a = 0; a < deck.length; a++){
+            for(possibleColors col: possibleColors.values()) {
+                for(possibleShadings shd: possibleShadings.values())  {
+                    for(possibleShapes shp: possibleShapes.values()) {
+                        for(possibleNumbers num: possibleNumbers.values()) {
+                            deck[a] = new Card(color, shading, shape, number);
+                        }
+                    }
+                }
+            }
+        } return deck;
+
+    }*/
     private String color;
     private String shading;
     private String shape;
