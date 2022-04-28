@@ -131,23 +131,43 @@ public class Card {
         return newArray;
     }
     
+    //method that removes 12 cards from the deck and creates the cards on the board
 
-    //method that compares 3 cards and checks whether they form a set
-    public boolean isSet(Card first, Card second, Card third) {
-        if(((first.color).equals(second.color) && (first.color).equals(third.color) && (second.color).equals(third.color))
-                && ((first.shading).equals(second.shading) && (first.shading).equals(third.shading) && (second.shading).equals(third.shading))
-                && ((first.shape).equals(second.shape) && (first.shape).equals(third.shape) && (second.shape).equals(third.shape))
-                && (first.number == second.number && first.number == third.number && second.number == third.number)){
-            return true;
-        }else if((!(first.color).equals(second.color) && !(first.color).equals(third.color) && !(second.color).equals(third.color))
-                && (!(first.shading).equals(second.shading) && !(first.shading).equals(third.shading) && !(second.shading).equals(third.shading))
-                && (!(first.shape).equals(second.shape) && !(first.shape).equals(third.shape) && !(second.shape).equals(third.shape))
-                && (!(first.number == second.number) && !(first.number == third.number) && !(second.number == third.number))){
-          return true;
+    public Card[] createCardsOnBoard (Card[] deck) {
+        Card[] cardsOnBoard = new Card[12];
+        int max = 80;
+        int index;
+        for(int i = 0; i < cardsOnBoard.length; i++) {
+            index = (int) (Math.random() * max);
+            cardsOnBoard[i] = deck[index];
+            deck = removeArrayElement(deck, index);
+            max--;
         }
+        return cardsOnBoard;
+    }
+    
 
+    ///method that compares 3 cards and checks whether they form a set
+    public boolean isSet(Card first, Card second, Card third) {
+        if((first.color.ordinal() == second.color.ordinal() && first.color.ordinal() == third.color.ordinal() && second.color.ordinal() == third.color.ordinal()
+        || (first.color.ordinal() != second.color.ordinal() && first.color.ordinal() != third.color.ordinal() && second.color.ordinal() != third.color.ordinal()
+        ))){
+            if((first.shading.ordinal() == second.shading.ordinal() && first.shading.ordinal() == third.shading.ordinal() && second.shading.ordinal() == third.shading.ordinal()
+                    || (first.shading.ordinal() != second.shading.ordinal() && first.shading.ordinal() != third.shading.ordinal() && second.shading.ordinal() != third.shading.ordinal()
+            ))){
+                if((first.shape.ordinal() == second.shape.ordinal() && first.shape.ordinal() == third.shape.ordinal() && second.shape.ordinal() == third.shape.ordinal()
+                        || (first.shape.ordinal() != second.shape.ordinal() && first.shape.ordinal() != third.shape.ordinal() && second.shape.ordinal() != third.shape.ordinal()
+                ))){
+                    if((first.number.ordinal() == second.number.ordinal() && first.number.ordinal() == third.number.ordinal() && second.number.ordinal() == third.number.ordinal()
+                            || (first.number.ordinal() != second.number.ordinal() && first.number.ordinal() != third.number.ordinal() && second.number.ordinal() != third.number.ordinal()
+                    ))){
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
-        
+
     }
 
     Card[] cardsOnBoard = new Card[12];
