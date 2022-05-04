@@ -131,17 +131,30 @@ public class Card {
         return newArray;
     }
     
+    
+    //method that shuffles the deck
+
+    public Card[] shuffle(Card[] deck) {
+        int currentIndex = deck.length;
+        int randomIndex;
+        while (currentIndex != 0) {
+            randomIndex = (int) Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            Card temp = deck[currentIndex];
+            deck[currentIndex] = deck[randomIndex];
+            deck[randomIndex] = temp;
+
+        }
+
+        return deck;
+    }
     //method that removes 12 cards from the deck and creates the cards on the board
 
     public Card[] createCardsOnBoard (Card[] deck) {
         Card[] cardsOnBoard = new Card[12];
-        int max = 80;
-        int index;
+        Card[] shuffledDeck = shuffle(deck);
         for(int i = 0; i < cardsOnBoard.length; i++) {
-            index = (int) (Math.random() * max);
-            cardsOnBoard[i] = deck[index];
-            deck = removeArrayElement(deck, index);
-            max--;
+            cardsOnBoard[i] = shuffledDeck[i];
         }
         return cardsOnBoard;
     }
